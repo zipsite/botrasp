@@ -5,6 +5,7 @@ define('ScriptsDir', MainDir.'/scripts/');
 define('ConfigDir', MainDir.'/config/');
 define('StorageDir', MainDir.'/storage/');
 define('TmpDir', MainDir.'/tmp/');
+define('LogDir', MainDir.'/log/');
 
 require 'vendor/autoload.php';
 

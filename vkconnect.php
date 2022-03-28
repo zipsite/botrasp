@@ -13,6 +13,6 @@ elseif ($VkCallBack->getType() == 'message_new') {
     echo('ok');
 }
 */
-$VkApi->send_mess('404323121', 'Приу');
+$VkApi->send_mess('404323121', "Приу");
 
 ?>
