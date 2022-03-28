@@ -15,13 +15,13 @@ class VkApi {
     function request($method, $params) {
         $params['access_token'] = $this->token;
         $params['v'] = $this->v;
-        //$params['random_id'] = '0';
+        $params['random_id'] = '0';
         $query = http_build_query($params);
         $url = "https://api.vk.com/method/" . $method . '?' . $query;
 
         $reply = json_decode(file_get_contents($url));
         if ($reply->error) {
-            error_log("{$reply->error->error_code}    {$reply->error->error_msg}\n", 3, LogDir."vkapi.log");
+            error_log("VkApi ERROR {$reply->error->error_code}    {$reply->error->error_msg}\n", 0);
         }
     }
     function send_mess($peer_id, $message) {
