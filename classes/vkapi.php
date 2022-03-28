@@ -2,7 +2,7 @@
 class VkApi {
     private $keyboards;
     private $token;
-    private $confirmation;
+    public $confirmation;
     private $v;
 
     function __construct() {
@@ -15,6 +15,7 @@ class VkApi {
     function request($method, $params) {
         $params['access_token'] = $this->token;
         $params['v'] = $this->v;
+        $params['random_id'] = '0';
         $query = http_build_query($params);
         $url = "https://api.vk.com/method/" . $method . '?' . $query;
 	    return file_get_contents($url);

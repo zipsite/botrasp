@@ -46,15 +46,15 @@ class User {
     }
 
     function setPath($path) {
-        setUserData('path',$path);
+        $this->setUserData('path',$path);
     }
 
     function setType($type) {
-        setUserData('type',$type);
+        $this->setUserData('type',$type);
     }
 
     function setSubscribe($subscribe) {
-        setUserData('subscribe',$subscribe);
+        $this->setUserData('subscribe',$subscribe);
     }
 
     function crtNewUser() {
