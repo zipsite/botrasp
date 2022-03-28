@@ -1,0 +1,14 @@
+{
+    "loginbd": {
+      "host": "",
+      "login": "",
+      "pass": "",
+      "namebd": ""
+    },
+    "loginvk": {
+      "v": "",
+      "token": "",
+      "confirmation": ""
+    },
+    "logintg": {}
+  }
