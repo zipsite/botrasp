@@ -26,5 +26,8 @@ class VkCallBack {
     function getAttType() {
         return $this->request->object->message->attachments->type;
     }
+    function getMessage() {
+        return $this->request->object->message->text;
+    }
 }
 ?>
