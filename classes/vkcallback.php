@@ -14,8 +14,12 @@ class VkCallBack {
         return $this->request->object->message->peer_id;
     }
 
-    function getType() {
-        return $this->request->type;
+    function getPlatform() {
+        return "vk";
+    }
+
+    function getMessage() {
+        return $this->request->object->message->text;
     }
 
     function getAttPhoto() {
@@ -23,11 +27,8 @@ class VkCallBack {
         return "photo".$photo->owner_id."_".$photo->id."_".$photo->access_key;
     }
 
-    function getAttType() {
-        return $this->request->object->message->attachments->type;
-    }
-    function getMessage() {
-        return $this->request->object->message->text;
+    function getType() {
+        return $this->request->type;
     }
 }
 ?>

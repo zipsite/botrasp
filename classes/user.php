@@ -16,7 +16,7 @@ class User {
         $this->platform_id = $platform_id;
     }
 
-    function uploadUserData() {
+    function loadUserData() {
         $result = $this->bd->query("SELECT * FROM user WHERE platform_id = '{$this->platform_id}' AND platform = '{$this->platform}'");
         $rows = $result->num_rows;
 
@@ -27,7 +27,7 @@ class User {
             $this->id = $userdata['id'];
             $this->type = $userdata['type'];
             $this->bg_id = $userdata['bg_id'];
-            $this->subcribe = $userdata['subcribe'];
+            $this->subcribe = $userdata['subscribe'];
             $this->path = $userdata['path'];
             $this->permition = $userdata['permition'];
             return 1;
@@ -53,17 +53,21 @@ class User {
         $this->setUserData('type',$type);
     }
 
+    function setPerm($perm) {
+        $this->setUserData('permition',$perm);
+    }
+
     function setSubscribe($subscribe) {
         $this->setUserData('subscribe',$subscribe);
     }
 
     function crtNewUser() {
         $this->bd->query("INSERT INTO user (platform, platform_id, bg_id, path, permition) 
-        VALUES ('{$this->platform}', '{$this->platform_id}', '0', '/start', 'guest')");
+        VALUES ('{$this->platform}', '{$this->platform_id}', '0', 'start/', 'guest')");
     }
 
     function dltUser() {
-        $this->bd->query("DELETE FROM user WHERE platform_id = '{$this->platform_id}' AND platform = '{$this->platform}");
+        $this->bd->query("DELETE FROM user WHERE platform_id = '{$this->platform_id}' AND platform = '{$this->platform}'");
     }
 
     function getUserId() {
@@ -84,7 +88,7 @@ class User {
     function getUserSubcribe() {
         return $this->subscribe;
     }
-    function getUserPath() {
+    function getPath() {
         return $this->path;
     }
     function getUserPermition() {

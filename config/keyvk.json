@@ -1,0 +1,46 @@
+{
+    "home":{
+        "buttons":[
+            [{"action":{"type":"text","label":"1 Корпус🏢"},"color":"secondary"},{"action":{"type":"text","label":"2 Корпус🏢"},"color":"secondary"}],
+            [{"action":{"type":"text","label":"Настройки"},"color":"secondary"}]
+        ],
+        "one_time":false
+    },
+    "setting":{
+        "buttons":[
+            [{"action":{"type":"text","label":"Фон"},"color":"secondary"},{"action":{"type":"text","label":"Подписка"},"color":"secondary"}],
+            [{"action":{"type":"text","label":"Пожертвовать"},"color":"secondary"}],
+            [{"action":{"type":"text","label":"Сбросить данные"},"color":"secondary"}],
+            [{"action":{"type":"text","label":"Отмена"},"color":"secondary"}]
+        ],
+        "one_time":false
+    },
+"settingBg":{
+    "buttons":[
+        [{"action":{"type":"text","label":"Изменить"},"color":"secondary"}],
+        [{"action":{"type":"text","label":"Отмена"},"color":"secondary"}]],
+        "one_time":false
+    },
+    "settingSub":{
+        "buttons":[
+            [{"action":{"type":"text","label":"Студент"},"color":"secondary"},{"action":{"type":"text","label":"Преподаватель"},"color":"secondary"}],
+            [{"action":{"type":"text","label":"Отмена"},"color":"secondary"}]
+        ],
+        "one_time":false
+    },
+    "settingdlt":{
+        "buttons":[
+            [{"action":{"type":"text","label":"Да"},"color":"secondary"},{"action":{"type":"text","label":"Нет"},"color":"secondary"}]
+        ],
+        "one_time":false
+    },
+    "close":{
+        "buttons":[],
+        "one_time":false
+    },
+    "start":{
+        "buttons":[
+            [{"action":{"type":"text","label":"Начать"},"color":"secondary"}]],
+            "one_time":false
+        }
+    }

@@ -3,8 +3,10 @@ class TgCallBack {
     public $request;
 
     function __construct() {
-        $this->request = json_decode(file_get_contents('php://input'));
-        file_put_contents(LogDir. '/message.txt', print_r($this->request, true));
+        $res = file_get_contents('php://input');
+        //$res = file_get_contents(LogDir.'mess.txt');
+        $this->request = json_decode($res);
+        fwrite(fopen(LogDir.'tg.log', 'a'), $res."\n");
     }
     
     function getIdUser() {
@@ -15,8 +17,16 @@ class TgCallBack {
         return $this->request->message->chat->id;
     }
 
+    function getPlatform() {
+        return "tg";
+    }
+
     function getMessage() {
         return $this->request->message->text;
+    }
+
+    function getAttPhoto() {
+        return $this->request->message->photo->file_id;
     }
 }
 ?>

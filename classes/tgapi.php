@@ -1,30 +1,48 @@
 <?php
 class TgApi {
-    private $keyboards;
+    public $keys;
     private $token;
 
     function __construct() {
         global $Config;
         $this->token = $Config->data->logintg->token;
+        $this->keys = json_decode(file_get_contents(ConfigDir.'keytg.json'));
     }
 
     function request($method, $params) {
-        $query = http_build_query($params);
-        $url = "https://api.telegram.org/bot" . $this->token . "/" . $method . '?' . $query;
-        $reply = json_decode(file_get_contents($url));
-        
-        if ($reply->ok == false) {
-            $report = "TgApi ERROR ".str($reply->error_code)."    ".$reply->description."\n";
-            error_log($report, 0);
-        }
-        echo($report);
+        $ch = curl_init('https://api.telegram.org/bot' . $this->token . "/" . $method);
+	    curl_setopt($ch, CURLOPT_POST, 1);  
+	    curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	    curl_setopt($ch, CURLOPT_HEADER, false);
+	    $res = curl_exec($ch);
+	    curl_close($ch);
+
+        fwrite(fopen(LogDir.'tg.log', 'a'), $res."\n");
     }
 
-    function send_mess($peer_id, $message) {
-        $this->request('sendMessage', array(
-            'chat_id' => $peer_id,
-            'text' => $message,
-          ));
+    function sendMessage($chat_id, $text, $key) {
+        $params['chat_id'] = $chat_id;
+        $params['text'] = $text;
+        if (!empty($key)) {
+            $params['reply_markup'] = json_encode($key);
+        }
+        $this->request('sendMessage', $params);
     }
+
+    function choiceKey() {
+
+    }
+
+    function sendPhoto($chat_id, $photo, $caption) {
+        $params['chat_id'] = $chat_id;
+        $params['photo'] = $photo;
+        $params['caption'] = $caption;
+        $this->request('sendMessage', $params);
+    }
+
+
+
+
 }
 ?>

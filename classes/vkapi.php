@@ -1,12 +1,13 @@
 <?php
 class VkApi {
-    private $keyboards;
+    public $keys;
     private $token;
     public $confirmation;
     private $v;
 
     function __construct() {
         global $Config;
+        $this->keys = json_decode(file_get_contents(ConfigDir.'keyvk.json'));
         $this->token = $Config->data->loginvk->token;
         $this->confirmation = $Config->data->loginvk->confirmation;
         $this->v = $Config->data->loginvk->v;
@@ -24,11 +25,13 @@ class VkApi {
             error_log("VkApi ERROR {$reply->error->error_code}    {$reply->error->error_msg}\n", 0);
         }
     }
-    function send_mess($peer_id, $message) {
-        $this->request('messages.send', array(
-            'peer_id' => $peer_id,
-            'message' => $message,
-          ));
+    function sendMessage($peer_id, $message, $key) {
+        $params['peer_id'] = $peer_id;
+        $params['message'] = $message;
+        if (!empty($key)) {
+            $params['keyboard'] = json_encode($key);
+        }
+        $this->request('messages.send', $params);
     }
 }
 ?>

@@ -1,0 +1,58 @@
+{
+  "home":{
+    "keyboard":[
+      [{"text":"1 Корпус🏢"},{"text":"2 Корпус🏢"}],
+      [{"text":"Настройки"}]
+    ],
+    "resize_keyboard":true,
+    "one_time_keyboard":false,
+    "selective":false
+  },
+  "setting":{
+    "keyboard":[
+      [{"text":"Фон"},{"text":"Подписка"}],
+      [{"text":"Пожертвовать"}],
+      [{"text":"Сбросить данные"}],
+      [{"text":"Отмена"}]
+    ],
+    "resize_keyboard":true,
+    "one_time_keyboard":false,
+    "selective":false
+  },
+  "settingBg":{
+    "keyboard":[
+      [{"text":"Изменить"}],[{"text":"Отмена"}]
+    ],
+    "resize_keyboard":true,
+    "one_time_keyboard":false,
+    "selective":false
+  },
+  "settingSub":{
+    "keyboard":[
+        [{"text":"Студент"},{"text":"Преподаватель"}],
+        [{"text":"Отмена"}]
+    ],
+    "resize_keyboard":true,
+    "one_time_keyboard":false,
+    "selective":false
+  },
+  "settingdlt":{
+    "keyboard":[
+      [{"text":"Да"},{"text":"Нет"}]
+    ],
+    "resize_keyboard":true,
+    "one_time_keyboard":false,
+    "selective":false
+  },
+  "close":{
+    "remove_keyboard": true
+  },
+  "start": {
+    "keyboard": [
+      [{"text": "Начать"}]
+    ],
+    "resize_keyboard": true,
+    "one_time_keyboard": false,
+    "selective": false
+  }
+}
