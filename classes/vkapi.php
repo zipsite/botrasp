@@ -19,18 +19,24 @@ class VkApi {
         $params['random_id'] = '0';
         $query = http_build_query($params);
         $url = "https://api.vk.com/method/" . $method . '?' . $query;
-
+        
         $reply = json_decode(file_get_contents($url));
-        if ($reply->error) {
+        if (isset($reply->error)) {
             error_log("VkApi ERROR {$reply->error->error_code}    {$reply->error->error_msg}\n", 0);
         }
+        
     }
-    function sendMessage($peer_id, $message, $key) {
+    function sendMessage($peer_id, $message, $key = NULL) {
         $params['peer_id'] = $peer_id;
         $params['message'] = $message;
-        if (!empty($key)) {
+        if (isset($key)) {
             $params['keyboard'] = json_encode($key);
         }
+        $this->request('messages.send', $params);
+    }
+    function sendPhoto($peer_id, $att) {
+        $params['peer_id'] = $peer_id;
+        $params['attachment'] = $att;
         $this->request('messages.send', $params);
     }
 }

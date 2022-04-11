@@ -1,5 +1,3 @@
 <?php
-require "bind.php";
-$User = new \User('tg', '592039349');
-echo($User->dltUser());
+echo NULL!==(strpos(mb_strtolower("Пидор"), "пидор"));
 ?>

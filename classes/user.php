@@ -26,7 +26,7 @@ class User {
 
             $this->id = $userdata['id'];
             $this->type = $userdata['type'];
-            $this->bg_id = $userdata['bg_id'];
+            $this->BgId = $userdata['bg_id'];
             $this->subcribe = $userdata['subscribe'];
             $this->path = $userdata['path'];
             $this->permition = $userdata['permition'];
@@ -51,6 +51,15 @@ class User {
 
     function setType($type) {
         $this->setUserData('type',$type);
+    }
+
+    function createBgId() {
+        global $Api;
+        
+    }
+
+    function setBgId($bg_id) {
+        $this->setUserData('bg_id',$bg_id);
     }
 
     function setPerm($perm) {
@@ -82,16 +91,16 @@ class User {
     function getUserType() {
         return $this->type;
     }
-    function getUserBg_id() {
-        return $this->Bg_id;
+    function getBgId() {
+        return $this->BgId;
     }
     function getUserSubcribe() {
         return $this->subscribe;
     }
     function getPath() {
-        return $this->path;
+        return explode('/', stripslashes(htmlspecialchars(trim($this->path))));
     }
-    function getUserPermition() {
+    function getPerm() {
         return $this->permition;
     }
     

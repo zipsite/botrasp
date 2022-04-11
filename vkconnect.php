@@ -1,25 +1,15 @@
 <?php
 require "bind.php";
 $Dialog = new \Dialog();
-echo('ok');
+
 $Dialog->CallBack = new \VkCallBack();
 $Dialog->Api = new \VkApi();
 
-$Dialog->pars();
-
-
-
-/*
-$VkCallBack = new \VkCallBack();
-$VkApi = new \VkApi();
-
-
-if ($VkCallBack->getType() == 'confirmation') {
-    echo($VkApi->confirmation);
+if ($Dialog->CallBack->getType() == 'confirmation') {
+    echo $Dialog->Api->confirmation;
 }
-elseif ($VkCallBack->getType() == 'message_new') {
+elseif ($Dialog->CallBack->getType() == 'message_new') {
+    $Dialog->pars();
     echo('ok');
 }
-$VkApi->send_mess('404323121', "Приу");
-*/
 ?>

@@ -23,8 +23,10 @@ class VkCallBack {
     }
 
     function getAttPhoto() {
-        $photo = $this->request->object->message->attachments->photo;
-        return "photo".$photo->owner_id."_".$photo->id."_".$photo->access_key;
+        if (!empty($this->request->object->message->attachments[0]->photo)) {
+            $photo = $this->request->object->message->attachments[0]->photo;
+            return "photo".$photo->owner_id."_".$photo->id."_".$photo->access_key;
+        }
     }
 
     function getType() {

@@ -6,5 +6,7 @@ $Dialog = new \Dialog();
 $Dialog->CallBack = new \TgCallBack();
 $Dialog->Api = new \TgApi();
 
-$Dialog->pars();
+if ($Dialog->CallBack->getType() == 'message') {
+    $Dialog->pars();
+}
 ?>

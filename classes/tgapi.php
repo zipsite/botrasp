@@ -19,30 +19,27 @@ class TgApi {
 	    curl_close($ch);
 
         fwrite(fopen(LogDir.'tg.log', 'a'), $res."\n");
+        return $res;
     }
 
-    function sendMessage($chat_id, $text, $key) {
+    function sendMessage($chat_id, $text, $key = NULL) {
         $params['chat_id'] = $chat_id;
         $params['text'] = $text;
-        if (!empty($key)) {
+        if (isset($key)) {
             $params['reply_markup'] = json_encode($key);
         }
         $this->request('sendMessage', $params);
     }
 
-    function choiceKey() {
-
-    }
-
-    function sendPhoto($chat_id, $photo, $caption) {
+    function sendPhoto($chat_id, $photo) {
         $params['chat_id'] = $chat_id;
         $params['photo'] = $photo;
-        $params['caption'] = $caption;
-        $this->request('sendMessage', $params);
+        $this->request('sendPhoto', $params);
     }
-
-
-
-
+    function getUrlPhoto($file_id) {
+        $params['file_id'] = $file_id;
+        $res = $this->request('getFile', $params);
+        return $res;
+    }
 }
 ?>

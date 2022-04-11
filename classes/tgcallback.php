@@ -26,7 +26,18 @@ class TgCallBack {
     }
 
     function getAttPhoto() {
-        return $this->request->message->photo->file_id;
+        if (!empty($this->request->message->photo)) {
+            return $this->request->message->photo[0]->file_id;
+        }
+    }
+
+    function getType() {
+        if (isset($this->request->message)) {
+            return 'message';
+        }
+        elseif (isset($this->request->my_chat_member)) {
+            return 'my_chat_member';
+        }
     }
 }
 ?>
