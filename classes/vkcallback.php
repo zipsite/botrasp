@@ -33,4 +33,4 @@ class VkCallBack {
         return $this->request->type;
     }
 }
-?>
+?> 

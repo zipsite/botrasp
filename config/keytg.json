@@ -10,7 +10,7 @@
   },
   "setting":{
     "keyboard":[
-      [{"text":"Фон"},{"text":"Подписка"}],
+      [{"text":"Подписка"}],
       [{"text":"Пожертвовать"}],
       [{"text":"Сбросить данные"}],
       [{"text":"Отмена"}]
@@ -54,5 +54,22 @@
     "resize_keyboard": true,
     "one_time_keyboard": false,
     "selective": false
+  },
+  "admin": {
+    "keyboard":[
+      [{"text":"mgs"}],
+      [{"text":"Отмена"}]
+    ],
+    "resize_keyboard":true,
+    "one_time_keyboard":false,
+    "selective":false
+  },
+  "adminmgs": {
+    "keyboard":[
+      [{"text":"Отмена"}]
+    ],
+    "resize_keyboard":true,
+    "one_time_keyboard":false,
+    "selective":false
   }
 }

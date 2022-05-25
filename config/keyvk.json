@@ -8,14 +8,14 @@
     },
     "setting":{
         "buttons":[
-            [{"action":{"type":"text","label":"Фон"},"color":"secondary"},{"action":{"type":"text","label":"Подписка"},"color":"secondary"}],
+            [{"action":{"type":"text","label":"Подписка"},"color":"secondary"}],
             [{"action":{"type":"text","label":"Пожертвовать"},"color":"secondary"}],
             [{"action":{"type":"text","label":"Сбросить данные"},"color":"secondary"}],
             [{"action":{"type":"text","label":"Отмена"},"color":"secondary"}]
         ],
         "one_time":false
     },
-"settingBg":{
+    "settingBg":{
     "buttons":[
         [{"action":{"type":"text","label":"Изменить"},"color":"secondary"}],
         [{"action":{"type":"text","label":"Отмена"},"color":"secondary"}]],
@@ -40,7 +40,22 @@
     },
     "start":{
         "buttons":[
-            [{"action":{"type":"text","label":"Начать"},"color":"secondary"}]],
+            [{"action":{"type":"text","label":"Начать"},"color":"secondary"}]
+        ],
+        "one_time":false
+    },
+    "admin":{
+    "buttons":[
+        [{"action":{"type":"text","label":"mgs"},"color":"secondary"}],
+        [{"action":{"type":"text","label":"Отмена"},"color":"secondary"}]
+        ],
+        "one_time":false
+    },
+    "adminmgs":{
+        "buttons":[
+            [{"action":{"type":"text","label":"Отмена"},"color":"secondary"}]
+            ],
             "one_time":false
         }
-    }
+}
+    

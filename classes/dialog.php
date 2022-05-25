@@ -30,6 +30,15 @@ class Dialog {
                     $this->User->setPath('setting/');
                     $this->Api->sendMessage($this->CallBack->getIdUser(), 'Настройки', $this->Api->keys->setting);
                 }
+                elseif ($this->CallBack->getMessage() == 'прима') {
+                    if ($perm == "admin") {
+                        $this->User->setPath('admin/');
+                        $this->Api->sendMessage($this->CallBack->getIdUser(), 'Админские примочки', $this->Api->keys->admin);
+                    }
+                }
+                elseif ($this->CallBack->getMessage() == 'myid') {
+                    $this->Api->sendMessage($this->CallBack->getIdUser(), "{$this->User->platform_id}");
+                }
                 /*
                 //Ответчик на нецензурную брань пока убранно
                 elseif (NULL!==(strpos(mb_strtolower($this->CallBack->getMessage()), "ху")) or NULL!==(strpos(mb_strtolower($this->CallBack->getMessage()), "еба")) or NULL!==(strpos(mb_strtolower($this->CallBack->getMessage()), "пидор"))) {
@@ -41,12 +50,30 @@ class Dialog {
                     $this->Api->sendMessage($this->CallBack->getIdUser(), 'Недопустимое действие', $this->Api->keys->home);
                 }
             }
-            //Раздел Админа, в разработке
-            /*
+            //Раздел Админа
             elseif ($path[0] == 'admin' and $perm == "admin") {
+                if (empty($path[1])){
+                    if ($this->CallBack->getMessage() == 'mgs') {
+                        $this->User->setPath('admin/mgs');
+                        $this->Api->sendMessage($this->CallBack->getIdUser(), 'Напишите массовое сообщение', $this->Api->keys->adminmgs);
+                    }
+                    elseif ($this->CallBack->getMessage() == 'Отмена') {
+                        $this->User->setPath('/');
+                        $this->Api->sendMessage($this->CallBack->getIdUser(), 'Отмена', $this->Api->keys->home);
+                    }
+                }
+                if ($path[1] == "mgs") {
+                    if ($this->CallBack->getMessage() != 'Отмена') {
+
+                    }
+                    elseif ($this->CallBack->getMessage() == 'Отмена') {
+                        $this->User->setPath('/');
+                        $this->Api->sendMessage($this->CallBack->getIdUser(), 'Отмена', $this->Api->keys->admin);
+                    }
+                }
                 
             }
-            */
+            
             //Раздел настроек, к нему есть доступ у группы normal и  admin
             elseif ($path[0] == 'setting' and ($perm == "normal" or $perm == "admin")) {
                 //Корневая страница настроек

@@ -6,7 +6,9 @@ class TgCallBack {
         $res = file_get_contents('php://input');
         //$res = file_get_contents(LogDir.'mess.txt');
         $this->request = json_decode($res);
-        fwrite(fopen(LogDir.'tg.log', 'a'), $res."\n");
+        $fp = fopen(LogDir.'tg.log', 'a');
+        fwrite($fp, $res."\n");
+        fclose($fp);
     }
     
     function getIdUser() {

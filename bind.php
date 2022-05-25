@@ -3,7 +3,8 @@ define('MainDir', __DIR__);
 define('ClassesDir', MainDir.'/classes/');
 define('ScriptsDir', MainDir.'/scripts/');
 define('ConfigDir', MainDir.'/config/');
-define('StorageDir', MainDir.'/storage/');
+define('BgDir', MainDir.'/background/');
+define('RaspFileDir', MainDir.'/raspfile/');
 define('TmpDir', MainDir.'/tmp/');
 define('LogDir', MainDir.'/log/');
 
